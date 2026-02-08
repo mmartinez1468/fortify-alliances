@@ -48,8 +48,8 @@ overlay?.addEventListener('click', toggleMenu)
 closeBtn?.addEventListener('click', toggleMenu)
 
 // Scroll-fill effect for .about-intro__title-line (word by word)
-const scrollFillContainer = document.querySelector('.about-intro__title')
-if (scrollFillContainer) {
+const scrollFillContainers = document.querySelectorAll('.about-intro__title')
+scrollFillContainers.forEach(scrollFillContainer => {
   const titleLines = scrollFillContainer.querySelectorAll('.about-intro__title-line')
   titleLines.forEach(line => {
     const words = line.textContent.trim().split(/\s+/)
@@ -74,7 +74,7 @@ if (scrollFillContainer) {
 
   window.addEventListener('scroll', updateScrollFill, { passive: true })
   updateScrollFill()
-}
+})
 
 
 

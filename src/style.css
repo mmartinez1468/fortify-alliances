@@ -29,10 +29,16 @@
     /* Semantic Colors */
     --color-primary: var(--color-off-white);
     --color-secondary: var(--color-black);
-    --color-accent: var(--color-gold);
+    --color-accent: #09D1E0;
     --color-text-primary: var(--color-white);
     --color-text-secondary: var(--color-gray-400);
     --color-text-muted: var(--color-gray-500);
+
+    /* Legacy shorthand aliases */
+    --colorprimary: var(--color-primary);
+    --colorsecondary: var(--color-secondary);
+    --coloraccent: var(--color-accent);
+    --colorparagraph: var(--color-text-secondary);
 
     /* Background Colors */
     --color-bg-primary: var(--color-black);
@@ -2216,7 +2222,273 @@ a {
 
 
 
+/* ==========================================================================
+   3. PROCESS SECTION STYLES
+   ========================================================================== */
 
+/* Section Container */
+#ourProcess {
+    background: #1A2225;
+}
+
+.process-header {
+    padding: 4rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.process-intro__title {
+    overflow: hidden;
+    text-align: center;
+}
+
+.process-intro__title h2 {
+    text-transform: capitalize;
+    color: var(--color-accent);
+    font-weight: 400;
+}
+
+.process-intro__title h2 span {
+    display: inline-block;
+}
+
+.process-intro__tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    max-width: 800px;
+}
+
+.process-intro__tab {
+    display: inline-block;
+    border: 2px solid var(--colorprimary);
+    border-radius: 3px;
+    padding: .25rem;
+    color: var(--colorprimary);
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.process-intro__tab:hover {
+    background-color: var(--coloraccent);
+    border-color: var(--coloraccent);
+    color: var(--colorsecondary);
+}
+
+/* Process Steps */
+.process-step {
+    padding-bottom: 3rem;
+}
+
+/* Step Image */
+.process-step-image {
+    width: 100%;
+    filter: brightness(0.8);
+    margin-bottom: 1rem;
+    display: inline-block;
+    height: 250px; /* Fixed height to ensure consistency */
+    overflow: hidden; /* Hide overflow to maintain clean edges */
+}
+
+.process-step-image img {
+    width: 100%;
+    height: 100%; /* Fill the parent container */
+    display: block;
+    object-fit: cover; /* Crop image to fill container while maintaining aspect ratio */
+    object-position: center; /* Center the image within the container */
+}
+
+/* Step Content */
+.process-step-content {
+    padding: 1rem;
+    padding-bottom: 3rem;
+}
+
+.step-content-wrapper {
+    overflow: hidden;
+}
+
+.step-content__tag {
+    overflow: hidden;
+}
+
+.step-content__tag h2 {
+    font-weight: 900;
+    color: var(--color-accent);
+}
+
+
+.step-content__info,
+.step-content__info-title,
+.step-content__info-subtitle,
+.step-content__info-description {
+    overflow: hidden;
+}
+.step-content__info-title h3 {
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+}
+
+.step-content__info-title h3 span {
+    display: inline-block;
+}
+
+.step-content__info-subtitle span {
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    line-height: normal;
+    color: var(--coloraccent);
+}
+
+.step-content__info-description p {
+    margin-top: 1rem;
+    color: var(--colorparagraph);
+}
+
+/* Step Outcome */
+.step-content-outcome {
+    padding: 1rem;
+    background-color: var(--colorprimary);
+    border-radius: 10px;
+    margin-top: 2rem;
+    max-width: 406px;
+}
+
+.step-content-outcome p {
+    color: #1A2225;
+    font-weight: bold;
+}
+
+.step-content-outcome span {
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: normal;
+    color: #1A2225;
+}
+
+
+
+
+@media screen and (max-width: 391px) {
+    .process-intro__title h2 {
+        font-size: 36px;
+        line-height: 40px;
+    }
+}
+
+/* Tablet Styles (768px+) */
+@media screen and (min-width: 768px) {
+    .process-header {
+        padding: 6.25rem 2rem;
+    }
+
+    .process-intro__title h2 {
+        font-size: 3.5rem;
+        line-height: 3.75rem;
+    }
+
+    /* Alternate layout for even steps */
+    .process-step-wrapper .process-step:nth-child(2),
+    .process-step-wrapper .process-step:nth-child(4),
+    .process-step-wrapper .process-step:nth-child(6) {
+        flex-direction: row-reverse;
+    }
+
+    .process-step-wrapper .process-step:nth-child(2) .process-step-content .step-content__tag,
+    .process-step-wrapper .process-step:nth-child(4) .process-step-content .step-content__tag,
+    .process-step-wrapper .process-step:nth-child(6) .process-step-content .step-content__tag {
+        margin-left: auto;
+    }
+
+    .process-step {
+        display: flex;
+        align-items: stretch;
+        padding: 0;
+    }
+
+    .process-step-image {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0;
+        height: 400px; /* Fixed height for tablet/desktop */
+    }
+
+    .process-step-content {
+        width: 55%;
+        padding: 2rem;
+        padding-bottom: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .process-step-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .step-content-wrapper {
+        margin: auto 0;
+    }
+}
+
+/* Desktop Styles (1024px+) */
+@media screen and (min-width: 1024px) {
+    .process-intro__title h2 {
+        font-size: 4rem;
+        line-height: 4.25rem;
+        max-width: 720px;
+    }
+
+    .process-step-content {
+        padding: 3rem;
+    }
+}
+
+/* Large Desktop Styles (1248px+) */
+@media screen and (min-width: 1248px) {
+    .process-header {
+        padding: 6.25rem;
+    }
+
+    .process-intro__title h2 {
+        font-size: 4.5rem;
+        line-height: 4.75rem;
+        max-width: 1056px;
+    }
+
+    .step-content-wrapper {
+        max-width: 591px;
+        margin: auto;
+    }
+
+    .process-step-image {
+        width: 40%;
+        height: 500px; /* Larger fixed height for large desktop */
+    }
+
+    .process-step-content {
+        width: 60%;
+    }
+
+    .step-content__info-title h3 {
+        font-size: 2rem;
+    }
+
+    .step-content-outcome {
+        max-width: 470px;
+    }
+}
 
 
 
@@ -2279,6 +2551,10 @@ a {
 
 }
 
+.about-intro__title--tablet {
+    display: none;
+}
+
 .about-intro__title h2 {
     font-size: 1.75rem;
     line-height: 1.75rem;
@@ -2297,7 +2573,7 @@ a {
 }
 
 
-.about-intro__subtitle-line p {
+.about-intro__subtitle p {
     font-size: 14px;
     color: #D1E8EB;
 }
@@ -2305,8 +2581,9 @@ a {
 .about-content {
     margin-top: 3rem;
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
 }
 
 .about-card {
@@ -2343,4 +2620,53 @@ a {
 .about-card__subtitle-line p {
     font-size: 14px;
     color: #D1E8EB;
+}
+
+
+
+@media screen and (min-width: 768px) {
+    .about-card {
+        max-width: 343px;
+    }
+
+    .about-intro__title h2 {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
+
+    .about-intro__title--mobile {
+        display: none;
+    }
+
+    .about-intro__title--tablet {
+        display: block;
+    }
+
+    .about-intro__subtitle p {
+        font-size: 1rem;
+        max-width: 600px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .about-intro__title h2 {
+        font-size: 3.5rem;
+        line-height: 3.5rem;
+        max-width: 1029px;
+    }
+
+    .about-intro__title--tablet {
+        display: block;
+    }
+
+    .about-intro__subtitle p {
+        font-size: 1.25rem;
+        max-width: 800px;
+    }
+}
+
+@media screen and (min-width: 1248px) {
+    .about-card {
+        max-width: 375px;
+    }
 }

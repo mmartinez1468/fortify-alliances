@@ -2191,3 +2191,156 @@ a {
         width: 25%;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#aboutUs {
+    padding: 3rem 1rem;
+    background: #1A2225;
+}
+
+@media screen and (min-width: 768px) {
+    #aboutUs {
+        padding: 4rem 2rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #aboutUs {
+        padding: 6.25rem 3rem;
+    }
+}
+
+.about-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.about-intro__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.about-intro__tag-icon {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #D1E8EB;
+    transform: rotate(45deg);
+}
+
+.about-intro__tag-text {
+    font-family: var(--font-secondary);
+    font-size: 12px;
+    font-weight: bold;
+    color: #D1E8EB;
+    text-transform: uppercase;
+}
+
+.about-intro__title {
+
+}
+
+.about-intro__title h2 {
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+}
+
+.about-intro__title-line {
+    display: block;
+}
+
+.about-intro__title-line .scroll-word {
+    --scroll-fill: 0%;
+    background: linear-gradient(to right, #09D1E0 var(--scroll-fill), #686873 var(--scroll-fill));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.about-intro__subtitle-line p {
+    font-size: 14px;
+    color: #D1E8EB;
+}
+
+.about-content {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.about-card__visual {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+}
+
+.about-card__visual img {
+    height: 100%;
+    width: 100%;
+}
+
+.about-card__title {
+    overflow: hidden;
+}
+
+.about-card__title h3 {
+    font-size: 1rem;
+    color: #09D1E0;
+}
+
+.about-card__subtitle-line {
+    overflow: hidden;
+}
+
+.about-card__subtitle-line p {
+    font-size: 14px;
+    color: #D1E8EB;
+}

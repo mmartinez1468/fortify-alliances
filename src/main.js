@@ -47,6 +47,35 @@ hamburger?.addEventListener('click', toggleMenu)
 overlay?.addEventListener('click', toggleMenu)
 closeBtn?.addEventListener('click', toggleMenu)
 
+// Scroll-fill effect for .about-intro__title-line (word by word)
+const scrollFillContainer = document.querySelector('.about-intro__title')
+if (scrollFillContainer) {
+  const titleLines = scrollFillContainer.querySelectorAll('.about-intro__title-line')
+  titleLines.forEach(line => {
+    const words = line.textContent.trim().split(/\s+/)
+    line.innerHTML = words.map(w => `<span class="scroll-word">${w}</span>`).join(' ')
+  })
+  const wordSpans = scrollFillContainer.querySelectorAll('.scroll-word')
+
+  function updateScrollFill() {
+    const rect = scrollFillContainer.getBoundingClientRect()
+    const start = window.innerHeight
+    const end = 0
+    const progress = Math.min(Math.max((start - rect.top) / (start - end), 0), 1)
+
+    const total = wordSpans.length
+    wordSpans.forEach((span, i) => {
+      const wordStart = i / total
+      const wordEnd = (i + 1) / total
+      const wordProgress = Math.min(Math.max((progress - wordStart) / (wordEnd - wordStart), 0), 1)
+      span.style.setProperty('--scroll-fill', `${wordProgress * 100}%`)
+    })
+  }
+
+  window.addEventListener('scroll', updateScrollFill, { passive: true })
+  updateScrollFill()
+}
+
 
 
 

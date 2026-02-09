@@ -8,7 +8,7 @@ const lenis = new Lenis({
   autoRaf: true,       // automatic animation frame updates
   smoothWheel: true,   // smooth scrolling with mouse
   smoothTouch: false,  // disabled to prevent nested scroll on mobile
-  wheelMultiplier: .8, // faster scroll
+  wheelMultiplier: .7, // faster scroll
 })
 
 // Smooth scroll for anchor links (using event delegation for dynamically loaded content)
@@ -26,26 +26,28 @@ document.addEventListener('click', (e) => {
   }
 })
 
-// Mobile menu toggle
+// Navigation overlay toggle
 const hamburger = document.querySelector('.navbar__hamburger')
-const mobileMenu = document.querySelector('.navbar__mobile-menu')
-const overlay = document.querySelector('.navbar__overlay')
+const navOverlay = document.getElementById('nav-overlay')
 
 function toggleMenu() {
   const isActive = hamburger.classList.toggle('is-active')
-  mobileMenu.classList.toggle('is-active')
-  overlay.classList.toggle('is-active')
+  navOverlay.classList.toggle('active')
   hamburger.setAttribute('aria-expanded', isActive)
-  mobileMenu.setAttribute('aria-hidden', !isActive)
-  overlay.setAttribute('aria-hidden', !isActive)
+  document.documentElement.style.overflow = isActive ? 'hidden' : ''
   document.body.style.overflow = isActive ? 'hidden' : ''
 }
 
-const closeBtn = document.querySelector('.navbar__close')
-
 hamburger?.addEventListener('click', toggleMenu)
-overlay?.addEventListener('click', toggleMenu)
-closeBtn?.addEventListener('click', toggleMenu)
+
+// Close overlay when clicking a nav link
+navOverlay?.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (navOverlay.classList.contains('active')) {
+      toggleMenu()
+    }
+  })
+})
 
 // Scroll-fill effect for .about-intro__title-line (word by word)
 const scrollFillContainers = document.querySelectorAll('.about-intro__title')

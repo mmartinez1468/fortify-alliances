@@ -3009,7 +3009,7 @@ a {
 .form-select {
     border-radius: 10px;
     padding: .5rem 1rem;
-    background-color: black;
+    background-color: #1A2225;
     border: none;
     font-family: var(--font-secondary);
     color: white;
